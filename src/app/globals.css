@@ -2,32 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --primary: #f0f2f5;
+    --primary-foreground: #161513;
+    --secondary: #ffffff;
+    --secondary-foreground: #1c1c22;
+  }
+
+  .dark {
+    --primary: #161513;
+    --primary-foreground: #f0f2f5;
+    --secondary: #1c1c22;
+    --secondary-foreground: #ffffff;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  body {
+    @apply bg-primary text-primary-foreground font-mono;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .primary-gradient {
+    @apply bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange;
+  }
+
+  .skills-background {
+    transition: background 0.5s ease-out, font-weight 0.1s ease-out;
+    background: linear-gradient(
+      to right,
+      #b16cea,
+      #ff5e69,
+      #ff8a56,
+      #ffa84b,
+      rgba(255, 168, 75, 0) 50%
+    );
+    background-size: 270% 100%;
+    background-position: right;
+  }
+  .skills-background:focus {
+    background-position: left;
+  }
+
+  .skills-background > svg {
+    transition: stroke-width 0.2s ease-in-out, width 0.5s ease-in-out;
+  }
+
+  .skills-background:hover {
+    background-position: left;
+    font-weight: bolder;
+  }
+
+  .skills-background:hover > svg {
+    width: 100px;
+    height: 100px;
+    stroke-width: 2px;
+  }
+
+  /* styles.css */
+  .CollapsibleContent {
+    overflow: hidden;
+  }
+  .CollapsibleContent[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+  .CollapsibleContent[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: var(--radix-collapsible-content-height);
+    }
+    to {
+      height: 0;
+    }
   }
 }
