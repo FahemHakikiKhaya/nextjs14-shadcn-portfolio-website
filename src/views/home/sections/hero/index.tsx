@@ -10,7 +10,7 @@ export default function HeroSection() {
           <div className="md:w-6/12 w-full flex flex-col space-y-7">
             <h1 className="md:text-6xl text-4xl font-extrabold leading-snug">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange">
-                Hello, I'm Fahem, <br />
+                Hello, I&apos;m Fahem, <br />
               </span>
               full stack developer based in Indonesia
             </h1>
