@@ -40,7 +40,7 @@ export default function SkillsSection() {
   return (
     <div className="my-20">
       <div className="container">
-        <div className="text-5xl font-bold w-3/5 leading-snug">
+        <div className="md:text-5xl text-4xl font-bold w-3/5 leading-snug">
           Crafting solutions through
           <span>
             <br />
@@ -55,7 +55,7 @@ export default function SkillsSection() {
           {React.Children.toArray(
             skills.map(({ title }) => (
               <div className="border-y-2 p-5 flex flex-row justify-between items-center skills-background cursor-pointer">
-                <div className="text-5xl">{title}</div>
+                <div className="md:text-5xl text-3xl">{title}</div>
                 <ArrowUpRight size={90} strokeWidth={1} />
               </div>
             ))

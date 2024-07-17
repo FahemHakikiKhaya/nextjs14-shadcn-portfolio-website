@@ -18,7 +18,7 @@ export default function HomeView() {
     <div>
       <HeroSection />
       <div className="container mt-20">
-        <div className="text-5xl font-bold w-3/5 leading-snug mb-8">
+        <div className="md:text-5xl text-4xl font-bold w-3/5 leading-snug mb-8">
           Recent
           <span className="bg-clip-text text-transparent primary-gradient">
             {" "}

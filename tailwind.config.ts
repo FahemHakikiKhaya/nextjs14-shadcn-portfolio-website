@@ -10,13 +10,6 @@ const config = {
   ],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
         primary: {
@@ -33,8 +26,15 @@ const config = {
         yelloworange: "#FFA84B",
       },
       container: {
+        center: true,
         padding: {
-          DEFAULT: "90px",
+          DEFAULT: "2rem",
+          lg: "4rem",
+          xl: "6rem",
+          "2xl": "6rem",
+        },
+        screens: {
+          "2xl": "1400px",
         },
       },
       height: {

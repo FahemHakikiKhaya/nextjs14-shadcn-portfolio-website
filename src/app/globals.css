@@ -40,6 +40,7 @@
     background-size: 270% 100%;
     background-position: right;
   }
+
   .skills-background:focus {
     background-position: left;
   }
