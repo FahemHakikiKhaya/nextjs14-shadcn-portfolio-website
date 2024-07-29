@@ -1,46 +1,70 @@
+"use client";
+
 import Ribbon from "@/components/ribbon";
-import { Button } from "@/components/ui/button";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
+  const [translateY, setTranslateY] = useState<number>(0);
+
+  const { isMd } = useBreakpoint("md");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTranslateY((prevTranslateY) => {
+        if (prevTranslateY === (isMd ? 96 : 48) * 3) {
+          return 0;
+        }
+        return prevTranslateY + (isMd ? 96 : 48);
+      });
+    }, 2000);
+
+    // Cleanup the interval on component unmount
+    return () => {
+      setTranslateY(0);
+      clearInterval(interval);
+    };
+  }, [isMd]);
+
   return (
-    <div className="md:h-screen h-auto pt-24 flex flex-col justify-between">
-      <div className="container md:mt-16 mt-10">
-        <div className="flex md:flex-row flex-col space-y-16 justify-between items-center">
-          <div className="md:w-6/12 w-full flex flex-col space-y-7">
-            <h1 className="md:text-6xl text-4xl font-extrabold leading-snug">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange">
-                Hello, I&apos;m Fahem, <br />
-              </span>
-              full stack developer based in Indonesia
-            </h1>
-            <p className="w-full text-base">
-              A young, cheerful software engineer who started his professional
-              career at 19 years old, driven by curiosity to understand how
-              technology makes everything appear magical.
-            </p>
-            <div className="md:space-x-4 space-x-2">
-              <Button variant="secondary" size="lg">
-                GET IN TOUCH{" "}
-              </Button>
-              <Button variant="primaryOutlined" size="lg">
-                VIEW ALL WORKS
-              </Button>
-            </div>
-          </div>
-          <div className="md:w-5/12 w-full h-120 relative">
-            <Image
-              src="/static/profile-picture.jpg"
-              alt="profile-picture"
-              width={300}
-              height={300}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+    <div className="md:h-screen h-[80vh] md:flex-row flex flex-col-reverse justify-between md:gap-0 gap-5">
+      <div className="md:w-6/12 w-full flex md:flex-col flex-col justify-center items-center">
+        <div className="md:text-8xl text-4xl font-bold leading-snug max-w-[550px] text-center">
+          <p className="bg-clip-text text-transparent primary-gradient">
+            LIVING TO
+          </p>
+          <div className="relative top-0 w-full overflow-hidden my-0 md:h-[96px] h-[48px]">
+            <motion.div
+              initial={{ translateY: 0 }}
+              animate={{ translateY: translateY ? `-${translateY}px` : 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 30,
+                restDelta: 0.001,
+              }}
+              className="absolute top-0 left-0 right-0"
+            >
+              <p>DREAM</p>
+              <p>CREATE</p>
+              <p>AMAZE</p>
+              <p>EXPLORE</p>
+            </motion.div>
           </div>
         </div>
+        <div className="font-bold text-md mt-5">
+          FULLSTACK DEVELOPER IN INDONESIA
+        </div>
       </div>
-      <div className="md:mt-0 mt-10">
-        <Ribbon />
+      <div className="md:w-6/12 w-full h-screen relative">
+        <Image
+          src="/static/profile-picture.jpg"
+          alt="profile-picture"
+          layout="fill"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
     </div>
   );

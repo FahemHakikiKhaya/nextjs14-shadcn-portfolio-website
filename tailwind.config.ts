@@ -11,6 +11,13 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
       colors: {
         primary: {
           DEFAULT: "var(--primary)",
@@ -20,21 +27,21 @@ const config = {
           DEFAULT: "var(--secondary)",
           foreground: "var(--secondary-foreground)",
         },
-        floral: "#B16CEA",
-        fieryrose: "#FF5E69",
-        coral: "#FF8A56",
-        yelloworange: "#FFA84B",
+        floral: "#3855aa",
+        fieryrose: "#e15eff",
+        coral: "#38aaaa",
+        yelloworange: "#85e5ba",
       },
       container: {
         center: true,
         padding: {
-          DEFAULT: "2rem",
-          lg: "4rem",
-          xl: "6rem",
-          "2xl": "6rem",
+          DEFAULT: "0.6rem",
+          lg: "0.6rem",
+          xl: "0.6rem",
+          "2xl": "0.6rem",
         },
         screens: {
-          "2xl": "1400px",
+          "2xl": "1440px",
         },
       },
       height: {
@@ -67,3 +74,5 @@ const config = {
 } satisfies Config;
 
 export default config;
+
+export const screens = config.theme.extend.screens;

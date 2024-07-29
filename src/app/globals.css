@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --primary: #f0f2f5;
-    --primary-foreground: #161513;
+    --primary-foreground: #0a0a0a;
     --secondary: #ffffff;
     --secondary-foreground: #1c1c22;
   }
 
   .dark {
-    --primary: #161513;
+    --primary: #0a0a0a;
     --primary-foreground: #f0f2f5;
     --secondary: #1c1c22;
     --secondary-foreground: #ffffff;
@@ -24,17 +24,17 @@
   }
 
   .primary-gradient {
-    @apply bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange;
+    @apply bg-gradient-to-r  from-floral via-fieryrose via-coral to-yelloworange;
   }
 
   .skills-background {
     transition: background 0.5s ease-out, font-weight 0.1s ease-out;
     background: linear-gradient(
       to right,
-      #b16cea,
-      #ff5e69,
-      #ff8a56,
-      #ffa84b,
+      #3855aa,
+      #e15eff,
+      #38aaaa,
+      #85e5ba,
       rgba(255, 168, 75, 0) 50%
     );
     background-size: 270% 100%;

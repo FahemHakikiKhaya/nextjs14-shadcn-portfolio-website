@@ -4,23 +4,31 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { Sparkle } from "lucide-react";
 
-const mottos: string[] = ["Code", "Deploy", "Review", "Improve"];
+const defaultLabels: string[] = ["Code", "Deploy", "Review", "Improve"];
 
-export default function Ribbon() {
+export default function Ribbon({
+  labels = defaultLabels,
+  bgColor = "bg-primary-foreground",
+  textColor = "text-primary",
+}: {
+  labels?: string[];
+  bgColor?: string;
+  textColor?: string;
+}) {
   return (
-    <div className="bg-primary-foreground">
+    <div className={`${bgColor}`}>
       <Marquee gradient={false} direction="left" speed={50}>
         {React.Children.toArray(
           Array.from({ length: 10 }, () => {
             return (
               <div className="flex py-5 items-center">
                 {React.Children.toArray(
-                  mottos.map((motto) => (
+                  labels.map((motto) => (
                     <>
-                      <div className="text-primary text-2xl font-bold">
+                      <div className={`${textColor} text-2xl font-bold`}>
                         {motto}
                       </div>
-                      <Sparkle className="text-primary mx-5" />
+                      <Sparkle className={`${textColor} mx-5`} />
                     </>
                   ))
                 )}

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
@@ -10,11 +11,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primaryOutlined:
-          "bg-transparent text-primary-foreground hover:bg-primary/90 rounded-full border-primary-foreground border",
+          "bg-transparent text-primary-foreground hover:bg-primary/90 rounded-md border-primary-foreground border",
         primary:
-          "bg-primary-foreground text-primary hover:bg-primary/90 rounded-full border-primary-foreground border",
+          "bg-primary-foreground text-primary hover:bg-primary/90 rounded-md border-primary-foreground border",
         secondary:
-          "bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange hover:bg-primary/90 rounded-full text-primary-foreground",
+          "bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange hover:bg-primary/90 rounded-md text-primary-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -42,11 +43,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        style={{ width: "fit-content" }}
+      >
+        <Comp
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        />
+      </motion.div>
     );
   }
 );

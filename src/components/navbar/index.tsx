@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Moon, PersonStanding } from "lucide-react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 export default function NavigationBar() {
   const { theme, setTheme } = useTheme();
@@ -21,22 +22,14 @@ export default function NavigationBar() {
   }, [scrollView.position]);
 
   return (
-    <div
-      className={`py-8 fixed w-screen top-0 ${
-        scrollView.visible
-          ? "translate-y-0 opacity-100 transition duration-700 ease-in"
-          : "-translate-y-full opacity-0 transition duration-700 ease-out"
-      }`}
+    <motion.div
+      className="py-8 fixed w-screen z-10 opacity-70 bg-primary backdrop-blur-md"
+      initial={{ translateY: 0 }}
+      animate={{ translateY: scrollView.visible ? 0 : -100 }}
+      transition={{ type: "just", stiffness: 300 }}
     >
       <div className="container flex flex-row justify-between">
         <div className="flex flex-row space-x-16 items-center">
-          <div className="flex flex-row items-center bg-primary-foreground">
-            <PersonStanding size={30} />
-            <h3 className="text-primary font-extrabold w-fit text-3xl">
-              FAHEM
-            </h3>
-          </div>
-
           <ul className="flex flex-row space-x-9 text-primary-foreground">
             <li>Home</li>
             <li>Project</li>
@@ -48,6 +41,6 @@ export default function NavigationBar() {
           <Moon />
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }

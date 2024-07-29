@@ -1,5 +1,9 @@
+"use client";
+
+import useParallax from "@/hooks/useParallax";
+import { useScroll } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 
 function ProjectCard({
   name,
@@ -46,29 +50,38 @@ const projectList = [
 ];
 
 export default function ProjectSection() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const y = useParallax(scrollYProgress, 300);
+
+  console.log({ scrollYProgress });
+
   return (
-    <div className="container py-28">
-      <div className="flex md:flex-row flex-col md:justify-between md:items-end space-y-4">
-        <div className="md:text-5xl text-4xl leading-tight font-bold">
-          Look at My{" "}
-          <span className="bg-clip-text text-transparent primary-gradient">
-            <br />
-            Projects.
-          </span>
+    <section>
+      <div className="container py-28 h-screen" ref={ref}>
+        <div className="flex md:flex-row flex-col md:justify-between md:items-end space-y-4">
+          <div className="md:text-5xl text-4xl leading-tight font-bold">
+            Look at My{" "}
+            <span className="bg-clip-text text-transparent primary-gradient">
+              <br />
+              Projects.
+            </span>
+          </div>
+          <div className="text-sm max-w-96">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            pharetra velit ut tortor blandit, in mattis arcu vehicula. Morbi et
+            leo venenatis, maximus eros sed, dictum diam. Nunc luctus, tortor
+            eget{" "}
+          </div>
         </div>
-        <div className="text-sm max-w-96">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-          pharetra velit ut tortor blandit, in mattis arcu vehicula. Morbi et
-          leo venenatis, maximus eros sed, dictum diam. Nunc luctus, tortor eget{" "}
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-24 gap-10 mt-16">
+          {React.Children.toArray(
+            projectList.map((project) => {
+              return <ProjectCard {...project} />;
+            })
+          )}
         </div>
       </div>
-      <div className="grid md:grid-cols-2 grid-cols-1 md:gap-24 gap-10 mt-16">
-        {React.Children.toArray(
-          projectList.map((project) => {
-            return <ProjectCard {...project} />;
-          })
-        )}
-      </div>
-    </div>
+    </section>
   );
 }

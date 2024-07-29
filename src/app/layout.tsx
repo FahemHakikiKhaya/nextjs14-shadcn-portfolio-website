@@ -3,13 +3,7 @@ import { Bai_Jamjuree, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavigationBar from "@/components/navbar";
-
-const baijamjuree = Bai_Jamjuree({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
-});
+import SmoothScroll from "@/components/smoothscroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,15 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${baijamjuree.className}`}>
+      <body className={`${inter.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <NavigationBar />
-          {children}
+          <SmoothScroll>
+            {/* <NavigationBar /> */}
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
