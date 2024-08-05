@@ -1,6 +1,7 @@
 import InViewAnimation from "@/components/in-view-animation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const ContactSection = () => {
   return (
@@ -22,9 +23,15 @@ const ContactSection = () => {
             LET&apos;S WORK TOGETHER
           </div>
         </InViewAnimation>
-        <Button variant="primaryOutlined" size="lg" className="md:mt-7 mt-5">
-          Contact Me
-        </Button>
+        <Link
+          href="mailto:hakikihaya@gmail.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Button variant="primaryOutlined" size="lg" className="md:mt-7 mt-5">
+            Contact Me
+          </Button>
+        </Link>
       </div>
     </div>
   );

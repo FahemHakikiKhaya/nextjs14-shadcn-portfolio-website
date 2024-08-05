@@ -1,5 +1,6 @@
 import InViewAnimation from "@/components/in-view-animation";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const AboutSection = () => {
   return (
@@ -30,9 +31,15 @@ const AboutSection = () => {
       </div>
       <InViewAnimation>
         <div className="mt-4">Based in Jakarta</div>
-        <Button variant="primaryOutlined" size="lg" className="mt-7">
-          Read More
-        </Button>
+        <Link
+          href="https://www.linkedin.com/in/fahem-khakiki-khaya-b9228a207"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Button variant="primaryOutlined" size="lg" className="mt-7">
+            Read More
+          </Button>
+        </Link>
       </InViewAnimation>
     </div>
   );

@@ -1,13 +1,18 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const projects: {
   image: string;
   title: string;
   description: string;
   stacks: string[];
+  link: string;
 }[] = [
   {
     image: "purwadhika.png",
@@ -15,6 +20,7 @@ const projects: {
     stacks: ["Strapi", "Midtrans", "Material UI"],
     description:
       "One of the highest contributor on purwadhika bootcamp website from revamping main website, cms, api and many more",
+    link: "https://purwadhika.com/",
   },
   {
     image: "kirei.png",
@@ -22,6 +28,7 @@ const projects: {
     description:
       "Contribute as a part-time worker on building brand new laundry super app mainly on the workbook pwa",
     stacks: ["Geolocation", "Docker", "Object Storage"],
+    link: "https://www.kireiwash.com/",
   },
   {
     image: "atur-dompetku.png",
@@ -29,6 +36,7 @@ const projects: {
     description:
       "A comprehensive personal money management app that allows you to track and manage spending across multiple wallets simultaneously.",
     stacks: ["React Native", "React Query", "Kitten UI"],
+    link: "https://github.com/FahemHakikiKhaya/AturDompetku-Expo-ReactNative",
   },
   {
     image: "detective.png",
@@ -36,10 +44,12 @@ const projects: {
     description:
       "A forward-chaining smartphone diagnostic app that uses a series of guided questions to identify smartphone issues",
     stacks: ["Next js", "Nest js", "Prisma", "Supabase"],
+    link: "https://fahem-khakiki-khaya-detective.vercel.app/",
   },
 ];
 
 const WorkSection = () => {
+  const router = useRouter();
   return (
     <div
       className="flex flex-col items-center md:my-20 my-16 container"
@@ -55,6 +65,9 @@ const WorkSection = () => {
         <BentoGrid className="max-w-6xl min-w-6xl">
           {projects.map((item, i) => (
             <BentoGridItem
+              onClick={() =>
+                window.open(item.link, "_blank", "noopener,noreferrer")
+              }
               key={i}
               title={item.title}
               description={item.description}
@@ -86,9 +99,15 @@ const WorkSection = () => {
           ))}
         </BentoGrid>
       </div>
-      <Button variant="primaryOutlined" size="lg" className="mt-7">
-        View More
-      </Button>
+      <Link
+        href="https://github.com/FahemHakikiKhaya?tab=repositories"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Button variant="primaryOutlined" size="lg" className="mt-7">
+          View More
+        </Button>
+      </Link>
     </div>
   );
 };
