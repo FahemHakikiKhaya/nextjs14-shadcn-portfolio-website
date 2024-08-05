@@ -92,55 +92,57 @@ export default function NavigationBar() {
             </>
           )}
         </div>
-        <div className="flex flex-row items-center space-x-10">
-          <Drawer direction="right">
-            <DrawerTrigger>Menu</DrawerTrigger>
-            <DrawerContent className="h-screen bg-primary">
-              <DrawerHeader>
-                <DrawerClose>
-                  {" "}
-                  <X className="ml-auto" />
-                </DrawerClose>
-              </DrawerHeader>
-              <div className="h-full flex flex-col items-center justify-center space-y-2">
-                <DrawerClose
-                  onClick={() =>
-                    setTimeout(() => {
-                      scrollToSection("about-section");
-                    }, 600)
-                  }
-                >
-                  <div className="text-3xl uppercase space-y-3 font-bold">
-                    About
-                  </div>
-                </DrawerClose>
-                <DrawerClose
-                  onClick={() =>
-                    setTimeout(() => {
-                      scrollToSection("project-section");
-                    }, 600)
-                  }
-                  className="cursor-pointer"
-                >
-                  <div className="text-3xl uppercase space-y-3 font-bold">
-                    Project
-                  </div>
-                </DrawerClose>
-                <DrawerClose
-                  onClick={() =>
-                    setTimeout(() => {
-                      scrollToSection("contact-section");
-                    }, 600)
-                  }
-                  className="cursor-pointer"
-                >
-                  <div className="text-3xl uppercase space-y-3 font-bold">
-                    Contact Me
-                  </div>
-                </DrawerClose>
-              </div>
-            </DrawerContent>
-          </Drawer>
+        <div className="flex flex-row items-center gap-x-10">
+          {Boolean(!isMd) && (
+            <Drawer direction="right">
+              <DrawerTrigger>MENU</DrawerTrigger>
+              <DrawerContent className="h-screen bg-primary">
+                <DrawerHeader>
+                  <DrawerClose>
+                    {" "}
+                    <X className="ml-auto" />
+                  </DrawerClose>
+                </DrawerHeader>
+                <div className="h-full flex flex-col items-center justify-center space-y-2">
+                  <DrawerClose
+                    onClick={() =>
+                      setTimeout(() => {
+                        scrollToSection("about-section");
+                      }, 600)
+                    }
+                  >
+                    <div className="text-3xl uppercase space-y-3 font-bold">
+                      About
+                    </div>
+                  </DrawerClose>
+                  <DrawerClose
+                    onClick={() =>
+                      setTimeout(() => {
+                        scrollToSection("project-section");
+                      }, 600)
+                    }
+                    className="cursor-pointer"
+                  >
+                    <div className="text-3xl uppercase space-y-3 font-bold">
+                      Project
+                    </div>
+                  </DrawerClose>
+                  <DrawerClose
+                    onClick={() =>
+                      setTimeout(() => {
+                        scrollToSection("contact-section");
+                      }, 600)
+                    }
+                    className="cursor-pointer"
+                  >
+                    <div className="text-3xl uppercase space-y-3 font-bold">
+                      Contact Me
+                    </div>
+                  </DrawerClose>
+                </div>
+              </DrawerContent>
+            </Drawer>
+          )}
           <Switch
             onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
           />
