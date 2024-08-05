@@ -21,43 +21,15 @@
 @layer base {
   body {
     @apply bg-primary text-primary-foreground font-mono;
+    @apply transition-colors duration-500 ease-in-out;
   }
 
   .primary-gradient {
-    @apply bg-gradient-to-r  from-floral via-fieryrose via-coral to-yelloworange;
+    @apply bg-gradient-to-r from-floral via-fieryrose via-coral to-yelloworange;
   }
 
-  .skills-background {
-    transition: background 0.5s ease-out, font-weight 0.1s ease-out;
-    background: linear-gradient(
-      to right,
-      #3855aa,
-      #e15eff,
-      #38aaaa,
-      #85e5ba,
-      rgba(255, 168, 75, 0) 50%
-    );
-    background-size: 270% 100%;
-    background-position: right;
-  }
-
-  .skills-background:focus {
-    background-position: left;
-  }
-
-  .skills-background > svg {
-    transition: stroke-width 0.2s ease-in-out, width 0.5s ease-in-out;
-  }
-
-  .skills-background:hover {
-    background-position: left;
-    font-weight: bolder;
-  }
-
-  .skills-background:hover > svg {
-    width: 100px;
-    height: 100px;
-    stroke-width: 2px;
+  .group .text-3xl.font-bold:hover {
+    opacity: 1 !important;
   }
 
   /* styles.css */
