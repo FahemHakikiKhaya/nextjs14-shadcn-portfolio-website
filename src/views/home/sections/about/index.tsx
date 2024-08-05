@@ -13,7 +13,7 @@ const AboutSection = () => {
       <div className="text-center max-w-[750px]">
         <InViewAnimation>
           <div className="md:text-4xl text-2xl text-center font-extrabold mt-1">
-            Hello, I'm Fahem, an experienced{" "}
+            Hello, I&apos;m Fahem, an experienced{" "}
             <span className="bg-clip-text text-transparent primary-gradient">
               fullstack developer
             </span>{" "}
