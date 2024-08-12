@@ -15,6 +15,15 @@ const firstWeapons = [
   { width: { md: "118px", xs: "80px" }, src: "github.png" },
 ];
 
+const secondWeapons = [
+  { width: { md: "70px", xs: "142px" }, src: "firebase.png" },
+  { width: { md: "100px", xs: "142px" }, src: "mongodb.png" },
+  { width: { md: "190px", xs: "142px" }, src: "mysql.png" },
+  { width: { md: "100px", xs: "142px" }, src: "postgresql.png" },
+  { width: { md: "260px", xs: "70px" }, src: "prisma.png" },
+  { width: { md: "270px", xs: "80px" }, src: "sequelize.png" },
+];
+
 export default function HomeView() {
   return (
     <div>
@@ -26,7 +35,7 @@ export default function HomeView() {
       <ProficiencySection />
       <WorkSection />
       <div className="mb-20">
-        <ImageMarquee images={firstWeapons} />
+        <ImageMarquee images={secondWeapons} />
       </div>
       <ContactSection />
     </div>
