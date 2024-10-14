@@ -6,9 +6,7 @@ export default function HeroSection() {
     <div className="md:h-screen h-[80vh] md:flex-row flex flex-col-reverse justify-between md:gap-0 gap-5">
       <div className="md:w-6/12 w-full flex md:flex-col flex-col justify-center items-center">
         <div className="md:text-8xl text-4xl font-bold leading-snug max-w-[550px] text-center">
-          <p className="bg-clip-text text-transparent primary-gradient">
-            LIVING TO
-          </p>
+          LIVING TO
           <AnimatedText />
         </div>
         <div className="font-bold text-md mt-5">

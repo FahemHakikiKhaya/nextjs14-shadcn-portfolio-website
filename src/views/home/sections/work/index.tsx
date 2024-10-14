@@ -17,34 +17,42 @@ const projects: {
   {
     image: "purwadhika.png",
     title: "Purwadhika",
-    stacks: ["Strapi", "Midtrans", "Material UI"],
+    stacks: ["React js", "Express js", "Typescript"],
     description:
-      "One of the highest contributor on purwadhika bootcamp website from revamping main website, cms, api and many more",
+      "Developed and maintained public dashboards, a landing page, a content management system, and backend APIs, while leading scrum routines and mentoring junior developers.",
     link: "https://purwadhika.com/",
   },
   {
     image: "kirei.png",
     title: "Kirei",
     description:
-      "Contribute as a part-time worker on building brand new laundry super app mainly on the workbook pwa",
-    stacks: ["Geolocation", "Docker", "Object Storage"],
+      "Developed and maintained a public landing page, a content management system, a driver and worker workbook app, and a backend API",
+    stacks: ["Next js", "Nest js", "Prisma", "AWS S3"],
     link: "https://www.kireiwash.com/",
   },
   {
-    image: "atur-dompetku.png",
-    title: "Atur Dompetku",
+    image: "atur-dompetku-new.png",
+    title: "Money Management App",
     description:
       "A comprehensive personal money management app that allows you to track and manage spending across multiple wallets simultaneously.",
-    stacks: ["React Native", "React Query", "Kitten UI"],
+    stacks: ["React Native", "Nest js", "Prisma"],
     link: "https://github.com/FahemHakikiKhaya/AturDompetku-Expo-ReactNative",
   },
   {
-    image: "detective.png",
-    title: "Detective",
+    image: "detective-new.png",
+    title: "Smartphone Diagnostic App",
     description:
-      "A forward-chaining smartphone diagnostic app that uses a series of guided questions to identify smartphone issues",
+      "A forward-chaining smartphone diagnostic app that uses a series of guided questions to identify smartphone issues ",
     stacks: ["Next js", "Nest js", "Prisma", "Supabase"],
     link: "https://fahem-khakiki-khaya-detective.vercel.app/",
+  },
+  {
+    image: "perfect-chat-app.png",
+    title: "Chat App",
+    description:
+      "A comprehensive real-time chat app that allows you to seamlessly communicate in personal or group chats with responsive design and secure authentication.",
+    stacks: ["Nextjs", "Pusher", "Prisma", "OAuth2"],
+    link: "https://fahem-khakiki-khaya-chat-app.vercel.app/",
   },
 ];
 
@@ -62,7 +70,7 @@ const WorkSection = () => {
         </div>
       </div>
       <div className="w-full">
-        <BentoGrid className="max-w-6xl min-w-6xl">
+        <BentoGrid className="max-w-6xl min-w-max-w-6xl">
           {projects.map((item, i) => (
             <BentoGridItem
               onClick={() =>
@@ -72,7 +80,7 @@ const WorkSection = () => {
               title={item.title}
               description={item.description}
               header={
-                <div className="md:w-full md:h-full h-[200px] relative group-hover:opacity-100 opacity-80 transition duration-200">
+                <div className="md:w-full md:h-full h-[300px] relative group-hover:opacity-100 opacity-80 transition duration-200">
                   <Image
                     src={`/static/project/${item.image}`}
                     alt="profile-picture"
@@ -85,7 +93,7 @@ const WorkSection = () => {
                 <div className="flex flex-row flex-wrap gap-3 my-4">
                   {item.stacks.map((stack, index) => (
                     <Badge
-                      variant="outline"
+                      variant="secondary"
                       key={index}
                       className="font-medium py-1"
                     >

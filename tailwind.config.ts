@@ -35,7 +35,7 @@ const config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "0.6rem",
+          DEFAULT: "2rem",
           lg: "0.6rem",
           xl: "0.6rem",
           "2xl": "0.6rem",

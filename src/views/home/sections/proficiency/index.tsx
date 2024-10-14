@@ -3,12 +3,13 @@ import Image from "next/image";
 import React from "react";
 
 const proficiencies: string[] = [
-  "Frontend",
-  "Backend",
-  "Database Design",
-  "DevOps and Deployment",
+  "Fullstack Development",
+  "System Design",
+  "DevOps",
   "Unit Testing",
   "Mobile Development",
+  "Microservice Architecture",
+  "Product Management",
 ];
 
 const ProficiencySection = () => {

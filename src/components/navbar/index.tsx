@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { Switch } from "../ui/switch";
@@ -12,8 +12,24 @@ import {
   DrawerHeader,
   DrawerTrigger,
 } from "../ui/drawer";
-import { X } from "lucide-react";
+import { Moon, Sun, X } from "lucide-react";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { Button } from "../ui/button";
+
+const navItems = [
+  {
+    label: "About",
+    id: "about-section",
+  },
+  {
+    label: "Project",
+    id: "project-section",
+  },
+  {
+    label: "Contact",
+    id: "contact-section",
+  },
+];
 
 export default function NavigationBar() {
   const { theme, setTheme } = useTheme();
@@ -25,10 +41,10 @@ export default function NavigationBar() {
     (id: string) => {
       if (lenis && "scrollTo" in lenis) {
         lenis.scrollTo(`#${id}`, {
-          offset: -50, // Example offset (scroll-padding-top)
-          duration: 1, // Example duration in seconds
-          easing: (t) => t * (2 - t), // Example easing function
-          onComplete: () => console.log("Scroll complete!"), // Callback when done
+          offset: -50,
+          duration: 1,
+          easing: (t) => t * (2 - t),
+          onComplete: () => console.log("Scroll complete!"),
         });
       } else {
         console.error(
@@ -68,29 +84,18 @@ export default function NavigationBar() {
     >
       <div className="container flex flex-row justify-between">
         <div className="flex flex-row space-x-5 items-center text-primary-foreground font-semibold uppercase text-sm">
-          <div className="font-extrabold text-xl mr-5">Fahem</div>
-          {Boolean(isMd) && (
-            <>
-              <div
-                onClick={() => scrollToSection("about-section")}
-                className="cursor-pointer"
-              >
-                About
-              </div>
-              <div
-                onClick={() => scrollToSection("project-section")}
-                className="cursor-pointer"
-              >
-                Project
-              </div>
-              <div
-                onClick={() => scrollToSection("contact-section")}
-                className="cursor-pointer"
-              >
-                Contact Me
-              </div>
-            </>
-          )}
+          <div className="font-black text-xl mr-5">Fahem</div>
+          {Boolean(isMd) &&
+            React.Children.toArray(
+              navItems.map(({ id, label }) => (
+                <div
+                  onClick={() => scrollToSection(id)}
+                  className="cursor-pointer font-bold"
+                >
+                  {label}
+                </div>
+              ))
+            )}
         </div>
         <div className="flex flex-row items-center gap-x-10">
           {Boolean(!isMd) && (
@@ -143,9 +148,24 @@ export default function NavigationBar() {
               </DrawerContent>
             </Drawer>
           )}
-          <Switch
+          <Button
+            variant="primaryOutlined"
+            className="bg-primary rounded-full p-3 flex items-center justify-center"
             onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
-          />
+            style={{ width: "50px", height: "50px" }}
+          >
+            {currentTheme === "dark" ? (
+              <Sun
+                className="text-primary-foreground"
+                style={{ width: "24px", height: "24px" }}
+              />
+            ) : (
+              <Moon
+                className="text-primary-foreground"
+                style={{ width: "24px", height: "24px" }}
+              />
+            )}
+          </Button>
         </div>
       </div>
     </motion.div>
