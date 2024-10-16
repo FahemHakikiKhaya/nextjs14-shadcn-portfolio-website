@@ -60,12 +60,12 @@ const WorkSection = () => {
   const router = useRouter();
   return (
     <div
-      className="flex flex-col items-center md:my-20 my-16 container"
+      className="flex flex-col items-center lg:my-20 my-16 container"
       id="project-section"
     >
       <div className="flex flex-col items-center text-center mb-10">
         <div className="text-sm mb-4">WORKS</div>
-        <div className="md:text-4xl text-2xl font-extrabold max-w-[600px]">
+        <div className="lg:text-4xl text-2xl font-extrabold max-w-[600px]">
           Turning visions into reality.{" "}
         </div>
       </div>
@@ -80,7 +80,7 @@ const WorkSection = () => {
               title={item.title}
               description={item.description}
               header={
-                <div className="md:w-full md:h-full h-[300px] relative group-hover:opacity-100 opacity-80 transition duration-200">
+                <div className="lg:w-full lg:h-full h-[300px] relative group-hover:opacity-100 opacity-80 transition duration-200">
                   <Image
                     src={`/static/project/${item.image}`}
                     alt="profile-picture"
@@ -102,7 +102,7 @@ const WorkSection = () => {
                   ))}
                 </div>
               }
-              className={`group ${i === 3 || i === 6 ? "md:col-span-2" : ""}`}
+              className={`group ${i === 3 || i === 6 ? "lg:col-span-2" : ""}`}
             />
           ))}
         </BentoGrid>

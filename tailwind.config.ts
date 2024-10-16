@@ -36,12 +36,10 @@ const config = {
         center: true,
         padding: {
           DEFAULT: "2rem",
-          lg: "0.6rem",
-          xl: "0.6rem",
-          "2xl": "0.6rem",
-        },
-        screens: {
-          "2xl": "1440px",
+          sm: "2rem",
+          lg: "1rem",
+          xl: "3rem",
+          "2xl": "3rem",
         },
       },
       height: {

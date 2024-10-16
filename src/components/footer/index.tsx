@@ -53,8 +53,8 @@ const stacks = [
 const Footer = () => {
   return (
     <div>
-      <div className="container border border-solid border-gray-800 border-l my-20" />
-      <div className="grid md:grid-cols-4 container gap-x-2 pb-10">
+      <div className="container border border-solid border-gray-800 border-l my-14 lg:my-20" />
+      <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-4 container gap-x-2 pb-10">
         <div className="uppercase">
           <div className="text-sm mb-4">Connect</div>
           <div className="group">
@@ -74,7 +74,7 @@ const Footer = () => {
               ))
             )}
           </div>
-          <div className="text-sm mt-auto pt-20">
+          <div className="text-sm mt-auto lg:pt-20 pt-14">
             © 2024 - INSPIRED BY RIVEN
           </div>
         </div>

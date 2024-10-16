@@ -35,6 +35,7 @@ export default function NavigationBar() {
   const { theme, setTheme } = useTheme();
   const lenis = useLenis();
 
+  const { isLg } = useBreakpoint("lg");
   const { isMd } = useBreakpoint("md");
 
   const scrollToSection = useCallback(
@@ -85,7 +86,7 @@ export default function NavigationBar() {
       <div className="container flex flex-row justify-between">
         <div className="flex flex-row space-x-5 items-center text-primary-foreground font-semibold uppercase text-sm">
           <div className="font-black text-xl mr-5">Fahem</div>
-          {Boolean(isMd) &&
+          {Boolean(isLg) &&
             React.Children.toArray(
               navItems.map(({ id, label }) => (
                 <div
@@ -98,9 +99,9 @@ export default function NavigationBar() {
             )}
         </div>
         <div className="flex flex-row items-center gap-x-10">
-          {Boolean(!isMd) && (
+          {Boolean(!isLg) && (
             <Drawer direction="right">
-              <DrawerTrigger>MENU</DrawerTrigger>
+              <DrawerTrigger className="font-semibold">MENU</DrawerTrigger>
               <DrawerContent className="h-screen bg-primary">
                 <DrawerHeader>
                   <DrawerClose>
@@ -148,24 +149,28 @@ export default function NavigationBar() {
               </DrawerContent>
             </Drawer>
           )}
-          <Button
-            variant="primaryOutlined"
-            className="bg-primary rounded-full p-3 flex items-center justify-center"
-            onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
-            style={{ width: "50px", height: "50px" }}
-          >
-            {currentTheme === "dark" ? (
-              <Sun
-                className="text-primary-foreground"
-                style={{ width: "24px", height: "24px" }}
-              />
-            ) : (
-              <Moon
-                className="text-primary-foreground"
-                style={{ width: "24px", height: "24px" }}
-              />
-            )}
-          </Button>
+          {Boolean(isLg) && (
+            <Button
+              variant="primaryOutlined"
+              className="bg-primary rounded-full p-3 flex items-center justify-center"
+              onClick={() =>
+                setTheme(currentTheme === "dark" ? "light" : "dark")
+              }
+              style={{ width: "50px", height: "50px" }}
+            >
+              {currentTheme === "dark" ? (
+                <Sun
+                  className="text-primary-foreground"
+                  style={{ width: "24px", height: "24px" }}
+                />
+              ) : (
+                <Moon
+                  className="text-primary-foreground"
+                  style={{ width: "24px", height: "24px" }}
+                />
+              )}
+            </Button>
+          )}
         </div>
       </div>
     </motion.div>

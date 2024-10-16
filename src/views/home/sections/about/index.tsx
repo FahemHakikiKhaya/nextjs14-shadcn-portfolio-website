@@ -5,7 +5,7 @@ import Link from "next/link";
 const AboutSection = () => {
   return (
     <div
-      className="container md:mt-28 mt-16 flex flex-col items-center"
+      className="container lg:mt-28 mt-16 flex flex-col items-center"
       id="about-section"
     >
       <InViewAnimation>
@@ -13,17 +13,14 @@ const AboutSection = () => {
       </InViewAnimation>
       <div className="text-center max-w-[750px]">
         <InViewAnimation>
-          <div className="md:text-4xl text-2xl text-center font-extrabold mt-1">
-            Hello, I&apos;m Fahem, an experienced{" "}
-            <span className="bg-clip-text text-transparent primary-gradient">
-              fullstack developer
-            </span>{" "}
-            fueled by an insatiable curiosity <br />
+          <div className="lg:text-4xl text-2xl text-center font-extrabold mt-1">
+            Hello, I&apos;m Fahem, an experienced fullstack developer fueled by
+            an insatiable curiosity <br />
             <br />
           </div>
         </InViewAnimation>
         <InViewAnimation>
-          <div className="md:text-4xl text-2xl text-center font-extrabold mt-1">
+          <div className="lg:text-4xl text-2xl text-center font-extrabold mt-1">
             Uncovering the secrets behind how technology transforms everyday
             experiences into something truly magical
           </div>

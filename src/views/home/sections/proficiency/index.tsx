@@ -14,8 +14,8 @@ const proficiencies: string[] = [
 
 const ProficiencySection = () => {
   return (
-    <div className="container h-screen flex md:flex-row flex-col md:gap-0 gap-10">
-      <div className="md:w-6/12 w-full md:h-full h-screen relative">
+    <div className="container h-screen flex lg:flex-row flex-col lg:gap-0 gap-10">
+      <div className="lg:w-6/12 w-full lg:h-full h-screen relative">
         <Image
           src="/static/kibby.png"
           alt="profile-picture"
@@ -23,13 +23,13 @@ const ProficiencySection = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
-      <div className="md:w-6/12 w-full flex flex-col items-center justify-center">
+      <div className="lg:w-6/12 w-full flex flex-col items-center justify-center">
         <div className="text-sm mb-4">PROFICIENCIES</div>
-        <div className="md:space-y-1 text-center">
+        <div className="lg:space-y-1 text-center">
           {React.Children.toArray(
             proficiencies.map((point) => (
               <InViewAnimation>
-                <div className="md:text-4xl text-2xl font-extrabold">
+                <div className="lg:text-4xl text-2xl font-extrabold">
                   {point}
                 </div>
               </InViewAnimation>

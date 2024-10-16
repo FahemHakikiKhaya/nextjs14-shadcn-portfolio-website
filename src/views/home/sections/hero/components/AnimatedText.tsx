@@ -7,15 +7,15 @@ import { useEffect, useState } from "react";
 const AnimatedText = () => {
   const [translateY, setTranslateY] = useState<number>(0);
 
-  const { isMd } = useBreakpoint("md");
+  const { isLg } = useBreakpoint("lg");
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTranslateY((prevTranslateY) => {
-        if (prevTranslateY === (isMd ? 96 : 48) * 3) {
+        if (prevTranslateY === (isLg ? 96 : 48) * 3) {
           return 0;
         }
-        return prevTranslateY + (isMd ? 96 : 48);
+        return prevTranslateY + (isLg ? 96 : 48);
       });
     }, 2000);
 
@@ -24,10 +24,10 @@ const AnimatedText = () => {
       setTranslateY(0);
       clearInterval(interval);
     };
-  }, [isMd]);
+  }, [isLg]);
 
   return (
-    <div className="relative top-0 w-full overflow-hidden my-0 md:h-[96px] h-[48px]">
+    <div className="relative top-0 w-full overflow-hidden my-0 lg:h-[96px] h-[48px]">
       <motion.div
         initial={{ translateY: 0 }}
         animate={{ translateY: translateY ? `-${translateY}px` : 0 }}
